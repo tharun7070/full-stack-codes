@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            padding-top: 20px;
+        }
+
+        .box {
+            background: white;
+            width: 350px;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 10px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+
+        <h2>Profile Page</h2>
+
+        <input type="text" id="fname" placeholder="First Name">
+
+        <input type="text" id="lname" placeholder="Last Name">
+
+        <input type="text" id="email" placeholder="Email">
+
+        <input type="text" id="phone" placeholder="Phone Number">
+
+        <textarea id="address" placeholder="Address"></textarea>
+
+        <input type="number" id="age" placeholder="Age">
+
+        <select id="gender">
+            <option>Select Gender</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+        </select>
+
+        <input type="text" id="course" placeholder="Course">
+
+        <button onclick="showProfile()">Submit</button>
+
+        <div id="result"></div>
+
+    </div>
+
+    <script>
+
+        function showProfile() {
+
+            let fname = document.getElementById("fname").value;
+            let lname = document.getElementById("lname").value;
+            let email = document.getElementById("email").value;
+            let phone = document.getElementById("phone").value;
+            let address = document.getElementById("address").value;
+            let age = document.getElementById("age").value;
+            let gender = document.getElementById("gender").value;
+            let course = document.getElementById("course").value;
+
+            document.getElementById("result").innerHTML =
+
+                "<h3>User Profile Details</h3>" +
+
+                "<p><b>Name:</b> " + fname + " " + lname + "</p>" +
+
+                "<p><b>Email:</b> " + email + "</p>" +
+
+                "<p><b>Phone:</b> " + phone + "</p>" +
+
+                "<p><b>Address:</b> " + address + "</p>" +
+
+                "<p><b>Age:</b> " + age + "</p>" +
+
+                "<p><b>Gender:</b> " + gender + "</p>" +
+
+                "<p><b>Course:</b> " + course + "</p>";
+        }
+
+    </script>
+
+</body>
+</html>

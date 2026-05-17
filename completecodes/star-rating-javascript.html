@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Rating System - JavaScript</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .rating-box {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .star {
+            font-size: 40px;
+            cursor: pointer;
+            color: gray;
+        }
+
+        .active {
+            color: gold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="rating-box">
+
+        <h2>Star Rating</h2>
+
+        <span class="star" data-value="1">&#9733;</span>
+        <span class="star" data-value="2">&#9733;</span>
+        <span class="star" data-value="3">&#9733;</span>
+        <span class="star" data-value="4">&#9733;</span>
+        <span class="star" data-value="5">&#9733;</span>
+
+        <p id="result">No Rating Selected</p>
+
+    </div>
+
+    <script>
+
+        let stars = document.querySelectorAll(".star");
+
+        stars.forEach(function(star) {
+
+            star.addEventListener("click", function() {
+
+                let rating = this.getAttribute("data-value");
+
+                stars.forEach(function(s) {
+                    s.classList.remove("active");
+                });
+
+                stars.forEach(function(s) {
+
+                    if (s.getAttribute("data-value") <= rating) {
+                        s.classList.add("active");
+                    }
+
+                });
+
+                document.getElementById("result").innerText =
+                    "You rated " + rating + " star(s)";
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Course Registration</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            padding-top: 20px;
+        }
+
+        .form-box {
+            background: white;
+            padding: 20px;
+            width: 350px;
+            border-radius: 8px;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 10px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="form-box">
+
+        <h2>Course Registration Form</h2>
+
+        <input type="text" id="fname" placeholder="First Name">
+
+        <input type="text" id="lname" placeholder="Last Name">
+
+        <input type="text" id="phone" placeholder="Phone Number">
+
+        <input type="text" id="email" placeholder="Email Address">
+
+        <textarea id="address" placeholder="Address"></textarea>
+
+        <select id="course">
+            <option value="">Select Course</option>
+            <option>Web Development</option>
+            <option>Machine Learning</option>
+            <option>Cloud Computing</option>
+            <option>Data Science</option>
+        </select>
+
+        <button onclick="validateForm()">Submit</button>
+
+        <div id="result"></div>
+
+    </div>
+
+    <script>
+
+        function validateForm() {
+
+            let fname = document.getElementById("fname").value;
+            let lname = document.getElementById("lname").value;
+            let phone = document.getElementById("phone").value;
+            let email = document.getElementById("email").value;
+            let address = document.getElementById("address").value;
+            let course = document.getElementById("course").value;
+
+            let phonePattern = /^[0-9]{10}$/;
+            let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+            if(fname == "" || lname == "" || phone == "" ||
+               email == "" || address == "" || course == "") {
+
+                alert("All fields are required");
+                return;
+            }
+
+            if(!phone.match(phonePattern)) {
+                alert("Phone number must contain 10 digits");
+                return;
+            }
+
+            if(!email.match(emailPattern)) {
+                alert("Enter valid email address");
+                return;
+            }
+
+            document.getElementById("result").innerHTML =
+                "<h3>Registration Successful</h3>" +
+                "<p><b>Name:</b> " + fname + " " + lname + "</p>" +
+                "<p><b>Phone:</b> " + phone + "</p>" +
+                "<p><b>Email:</b> " + email + "</p>" +
+                "<p><b>Address:</b> " + address + "</p>" +
+                "<p><b>Course:</b> " + course + "</p>";
+        }
+
+    </script>
+
+</body>
+</html>

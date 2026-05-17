@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Animation</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 150px;
+            background-color: #f4f7fb;
+        }
+
+        .text-box {
+            width: 360px;
+            min-height: 120px;
+            margin: 0 auto;
+            padding: 30px;
+            border: 3px solid #333;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #text {
+            font-size: 20px;
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="text-box">
+        <h1 id="text">Growing Text</h1>
+    </div>
+
+    <script>
+
+        let text = document.getElementById("text");
+        let box = document.querySelector(".text-box");
+
+        let size = 20;
+        let grow = true;
+
+        function animation() {
+
+            if (grow) {
+
+                size = size + 2;
+
+                text.style.fontSize = size + "px";
+                text.style.color = "green";
+                text.innerHTML = "Growing Text";
+                box.style.width = (size * 8) + "px";
+                box.style.minHeight = (size * 3) + "px";
+
+                if (size >= 50) {
+                    grow = false;
+                }
+
+            } else {
+
+                size = size - 2;
+
+                text.style.fontSize = size + "px";
+                text.style.color = "red";
+                text.innerHTML = "Shrinking Text";
+                box.style.width = (size * 8) + "px";
+                box.style.minHeight = (size * 3) + "px";
+
+                if (size <= 20) {
+                    grow = true;
+                }
+            }
+        }
+
+        setInterval(animation, 100);
+
+    </script>
+
+</body>
+</html>
